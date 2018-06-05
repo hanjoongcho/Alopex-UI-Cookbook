@@ -1,0 +1,239 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- <title>Demo | Alopex Grid</title> -->
+    	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    	<meta name="description" content="">
+    	<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    	<!--[if IE]><link rel="shortcut icon" href="http://grid.alopex.io/favicon.ico"><![endif]-->
+    	<link rel="icon" href="http://grid.alopex.io/favicon.ico">
+    	<link rel="stylesheet" href="http://grid.alopex.io/js/lib/alopex/css/alopex-ui-default.css">
+    	<link rel="stylesheet" href="http://grid.alopex.io/dist/css/alopex-grid.css" id="grid_theme_link">
+    	<link rel="stylesheet" href="http://grid.alopex.io/styles/css/app/demo_excelCSS.css" />
+    	<link rel="stylesheet" href="http://grid.alopex.io/styles/css/app/grid-web.css">
+    	<link rel="stylesheet" href="http://grid.alopex.io/styles/css/app/prettify.css" />
+
+    	<script src="http://grid.alopex.io/js/lib/jquery/jquery-1.12.4.min.js"></script>
+    	<script src="http://grid.alopex.io/js/lib/alopex/script/alopex-ui.min.js"></script>
+    	<script src="http://grid.alopex.io/dist/script/alopex-grid-trial.min.js"></script>
+    	<script src="http://grid.alopex.io/dist/script/alopex-grid-excel.min.js"></script>
+    	<script src="http://grid.alopex.io/js/lib/showdown/showdown.min.js"></script>
+    	<script src="http://grid.alopex.io/js/lib/modernizr/modernizr.js"></script>
+    	<script src="http://grid.alopex.io/js/lib/bootstrap/affix.js"></script>
+    	<script src="http://grid.alopex.io/js/lib/prettify/prettify.js"></script>
+
+    </head>
+
+    <body>
+        <div>
+            <div id="gr"></div>
+        </div>
+
+        <script>
+        var data = [
+        	{
+        		"name": "Vera",
+        		"phone": "138-955-8109",
+        		"email": "eu.odio@maurisblanditmattis.ca",
+        		"birthday": "2015-07-18",
+        		"zip": "467025",
+        		"salary": 787197,
+        		"country": "Bahamas",
+        		"city": "Serrungarina",
+        		"company": "Suspendisse Dui Fusce PC",
+        		"type": 2
+        	}, {
+        		"name": "Autumn",
+        		"phone": "369-405-2973",
+        		"email": "Quisque@loremsemper.com",
+        		"birthday": "2014-05-03",
+        		"zip": "370659",
+        		"salary": 168857,
+        		"country": "Suriname",
+        		"city": "Eigenbrakel",
+        		"company": "Nibh Dolor Nonummy LLC",
+        		"type": 9
+        	}, {
+        		"name": "Amy",
+        		"phone": "693-6192",
+        		"email": "sit@egetmagnaSuspendisse.ca",
+        		"birthday": "2015-08-06",
+        		"zip": "2794",
+        		"salary": 235913,
+        		"country": "Cocos (Keeling) Islands",
+        		"city": "Chartres",
+        		"company": "Tincidunt Consulting",
+        		"type": 1
+        	}, {
+        		"name": "Thor",
+        		"phone": "569-6512",
+        		"email": "parturient.montes.nascetur@imperdietnon.edu",
+        		"birthday": "2014-01-17",
+        		"zip": "26962",
+        		"salary": 853938,
+        		"country": "Spain",
+        		"city": "Beho",
+        		"company": "Nulla LLC",
+        		"type": 10
+        	}, {
+        		"name": "Dakota",
+        		"phone": "270-477-0444",
+        		"email": "sed.pede@tortordictumeu.edu",
+        		"birthday": "2015-06-17",
+        		"zip": "7374PU",
+        		"salary": 575048,
+        		"country": "Bonaire, Sint Eustatius and Saba",
+        		"city": "Yahyalı",
+        		"company": "Parturient Montes Nascetur Inc.",
+        		"type": 1
+        	}, {
+        		"name": "Cooper",
+        		"phone": "610-9420",
+        		"email": "placerat.Cras.dictum@eratVivamus.net",
+        		"birthday": "2015-07-20",
+        		"zip": "73706",
+        		"salary": 170683,
+        		"country": "New Caledonia",
+        		"city": "Deline",
+        		"company": "Nulla Tincidunt Neque Ltd",
+        		"type": 2
+        	}, {
+        		"name": "Bethany",
+        		"phone": "949-378-7845",
+        		"email": "erat@Morbiaccumsanlaoreet.edu",
+        		"birthday": "2014-12-16",
+        		"zip": "83245-257",
+        		"salary": 998642,
+        		"country": "Poland",
+        		"city": "Milwaukee",
+        		"company": "Vel Sapien Company",
+        		"type": 1
+        	}, {
+        		"name": "Ronan",
+        		"phone": "503-6165",
+        		"email": "pellentesque@egestasDuisac.co.uk",
+        		"birthday": "2015-03-23",
+        		"zip": "1124",
+        		"salary": 38416,
+        		"country": "Aruba",
+        		"city": "Calgary",
+        		"company": "Donec PC",
+        		"type": 7
+        	}, {
+        		"name": "Lamar",
+        		"phone": "244-4542",
+        		"email": "enim.sit@nonarcu.com",
+        		"birthday": "2015-07-29",
+        		"zip": "18214",
+        		"salary": 106591,
+        		"country": "Palau",
+        		"city": "Portland",
+        		"company": "Tristique Pharetra Quisque Corp.",
+        		"type": 4
+        	}, {
+        		"name": "Gisela",
+        		"phone": "203-196-7156",
+        		"email": "porttitor.tellus@Sed.org",
+        		"birthday": "2014-03-20",
+        		"zip": "587048",
+        		"salary": 255047,
+        		"country": "Italy",
+        		"city": "Aberystwyth",
+        		"company": "Augue Eu Tempor Associates",
+        		"type": 6
+        	}, {
+        		"name": "Nolan",
+        		"phone": "694-889-2611",
+        		"email": "Etiam.laoreet.libero@Aliquamadipiscing.ca",
+        		"birthday": "2014-07-10",
+        		"zip": "74-869",
+        		"salary": 205358,
+        		"country": "Gambia",
+        		"city": "Coldstream",
+        		"company": "Ac Fermentum Vel PC",
+        		"type": 7
+        	}, {
+        		"name": "Echo",
+        		"phone": "623-969-3747",
+        		"email": "enim@volutpatNulla.edu",
+        		"birthday": "2015-04-27",
+        		"zip": "M1K 9P9",
+        		"salary": 986701,
+        		"country": "Congo, the Democratic Republic of the",
+        		"city": "Genk",
+        		"company": "A Industries",
+        		"type": 9
+        	}
+        ];
+
+        $('#gr').alopexGrid({
+            height: 400,
+            autoColumnIndex: true,
+            hiddenColumnArea: "숨길 칼럼을 여기로 드래그 해주십시오",
+            filteringHeader: true,
+            filter: {
+                movable: true,
+                saveFilterSize: true,
+                title: true
+            },
+            defaultColumnMapping : {
+                resizing: true,
+                headerDragDrop: true,
+            },
+            columnMapping : [
+                {
+                    selectorColumn : true,
+                    width : '30px'
+                }, {
+                    key : 'name',
+                    title : 'name',
+                    width : '100px'
+                }, {
+                    key : 'phone',
+                    title : 'phone',
+                    width : '100px'
+                }, {
+                    key : 'email',
+                    title : 'email',
+                    width : '250px'
+                }, {
+                    align : 'center',
+                    key : 'birthday',
+                    title : 'birthday',
+                    width : '100px'
+                }, {
+                    align : 'center',
+                    key : 'zip',
+                    title : 'zip',
+                    width : '100px'
+                }, {
+                    align : 'right',
+                    key : 'salary',
+                    title : 'salary',
+                    width : '100px'
+                }, {
+                    key : 'country',
+                    title : 'country',
+                    width : '200px'
+                }, {
+                    key : 'city',
+                    title : 'city',
+                    width : '150px'
+                }, {
+                    key : 'company',
+                    title : 'company',
+                    width : '200px'
+                }, {
+                    key : 'type',
+                    align: 'center',
+                    title : 'type',
+                    width : '50px'
+                }
+            ],
+            data: data
+            });
+
+        </script>
+    </body>
+</html>
