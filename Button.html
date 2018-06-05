@@ -1,0 +1,61 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/dist/css/alopex-ui-default.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/mddocs.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/alopex-web.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/prettify.css">
+
+        <script src="http://ui.alopex.io/js/libs/jquery/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/dist/script/alopex-ui.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/prettify/prettify.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/clipboard/clipboard.min.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <button class="Button">Button Tag로 된 Button</button>
+            <a class="Button">a Tag로 된 Button</a>
+            <input class="Button" value="input Tag로 된 Button">
+
+            <button class="Button Toggle" id="buttonTest01">Button</button>
+
+            <button class="Button Toggle" data-on="ON" data-off="OFF" id="buttonTest02">Button</button>
+            <button class="Button" data-disabled="true" id="buttonTest03">Button</button>
+        </div>
+        <div>
+            <button id="button1" class="Button">Button</button>
+            <button id="btn_setEnabled" class="Button Toggle" data-on="setEnabled(true)" data-off="setEnabled(false)">setEnabled</button>
+        </div>
+        <div>
+            <button id="button2" class="Button Toggle" data-on="CHECKED" data-off="UNCHECKED">Button</button>
+            <button id="btn_setChecked" class="Button Toggle" data-on="setChecked(false)" data-off="setChecked(true)">setChecked</button>
+        </div>
+        
+        <script>
+            $("#btn_setEnabled").on("click", function() {
+                if ($("#button1").hasClass("Disabled")) {
+                    $("#button1").setEnabled(true);
+                } else {
+                    $("#button1").setEnabled(false);
+                }
+            });
+
+            $("#btn_setChecked").on("click", function (){
+                if ($("#button2").hasClass("Checked")) {
+                     $("#button2").setChecked(false);
+                } else {
+                     $("#button2").setChecked(true);
+                }
+            });
+
+            $("#button2").on("click", function (){
+                 $("#btn_setChecked").toggleChecked();
+            });
+        </script>
+    </body>
+</html>
