@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/dist/css/alopex-ui-default.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/mddocs.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/alopex-web.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/prettify.css">
+        <style>
+            div {padding: 20px; width:600px;"}
+        </style>
+        <script src="http://ui.alopex.io/js/libs/jquery/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/dist/script/alopex-ui.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/prettify/prettify.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/clipboard/clipboard.min.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <div class="Tabs" id="basicTabs">
+                <ul>
+                    <li data-content="#tab1">tab1</li>
+                    <li data-content="#tab2">tab2</li>
+                    <li data-content="#tab3">tab3</li>
+                    <li data-content="#tab4">tab4<button class="RemoveButton"></button></li>
+                </ul>
+                <div id="tab1">
+                    <strong>tab1</strong>
+                    <p>
+                    tab1 Contents
+                    </p>
+                </div>
+                <div id="tab2">
+                    <strong>tab2</strong>
+                    <p>
+                    tab2 Contents
+                    </p>
+                </div>
+                <div id="tab3">
+                    <strong>tab3</strong>
+                    <p>
+                    tab3 Contents
+                    </p>
+                </div>
+                <div id="tab4">
+                    <strong>tab4</strong>
+                    <p>
+                    tab4 Contents
+                    </p>
+                </div>
+            </div>
+
+            <h5>tab3 클릭 (tab3에 대한 제어 테스트)</h5>
+            <div class="Tabs" id="tabs_beforetabchange">
+                <ul>
+                    <li data-content="#tab1_beforetabchange">tab1</li>
+                    <li data-content="#tab2_beforetabchange">tab2</li>
+                    <li data-content="#tab3_beforetabchange">tab3</li>
+                </ul>
+                <div id="tab1_beforetabchange">
+                    <h5>tab1 컨텐츠</h5>
+                </div>
+                <div id="tab2_beforetabchange">
+                    <h5>tab2 컨텐츠</h5>
+                </div>
+                <div id="tab3_beforetabchange">
+                    <h5>tab3 컨텐츠</h5>
+                </div>
+            </div>
+
+            <div class="Tabs" id="tabs1">
+                <ul>
+                    <li data-content="#tab1">tab1</li>
+                    <li data-content="#tab2">tab2</li>
+                    <li data-content="#tab3">tab3</li>
+                </ul>
+                <div id="tab1">
+                    <span>tab1 contents</span>
+                </div>
+                <div id="tab2">
+                    <span>tab2 contents</span>
+                </div>
+                <div id="tab3">
+                    <span>tab3 contents</span>
+                </div>
+            </div>
+            <br>
+            <span id="span1"></span></div>
+        </div>
+
+
+
+        <script>
+            // 사용자 권한 코드에 따른 tabchange 제어
+            var userAuth = 1;
+            $('#tabs_beforetabchange').on('beforetabchange', function(e, index, index2){
+                // e : event object
+                // index : 선택한 탭버튼 인덱스
+                var $this = $(this); // == $('#tabs1_beforetabchange')
+                if(index === 2 && userAuth === 1){ // 권한과 선택한 탭에 대한 제어 조건 판별
+                        alert("[" + $this.getTitleByIndex(index) + "] 접근 권한이 없습니다.");
+                        return false;
+                }
+                return true;
+            });
+
+            $('#tabs1').on('tabchange', function(e, index, index2){
+                // e : event object
+                // index : 탭버튼 인덱스
+                index = index+1;
+                $('#span1').text("tab"+index+" is selected");
+             });
+
+             $('#depth2tabchange').on("tabchange", function(e, index, index2){
+                if(index2 !== undefined){ // Tabs컴퍼넌트의 2 depth 기능 사용 시에만 index2 를 리턴한다.
+                    var $this = $(this); // == $('#depth2tabchange')
+                    var content = $this.getTabContentByIndex(index, index2); // 컨텐츠DIV 가져오기.
+                    var $grids = $(content).find(".alopexgrid:visible");
+                    if($grids.length !== -1){
+                        // 컨텐츠DIV 내 visible인 최소한의 그리드만 viewUpdate 수행.
+                        $grids.alopexGrid("viewUpdate");
+                    }
+                }
+            });
+        </script>
+    </body>
+</html>
