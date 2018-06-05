@@ -1,0 +1,206 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/dist/css/alopex-ui-default.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/mddocs.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/alopex-web.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/prettify.css">
+        <style>
+            div {padding: 20px;}
+        </style>
+        <script src="http://ui.alopex.io/js/libs/jquery/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/dist/script/alopex-ui.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/prettify/prettify.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/clipboard/clipboard.min.js"></script>
+    </head>
+
+    <body>
+        <div>
+            <ul class="Tree">
+                <li>
+                    <span class="Arrow"></span>
+                    <a> Tree Memu 1</a>
+                    <ul>
+                        <li><span class="Arrow"></span>
+                            <a>Tree Memu 1-1</a>
+                            <ul>
+                                <li>
+                                    <span class="Arrow"></span>
+                                    <a>Tree Memu 1-1-1</a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span>
+                                    <a>Tree Memu 1-1-2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <ul class="Tree">
+                <li>
+                    <span class="Arrow"></span>
+                    <a>
+                        <img src="http://ui.alopex.io/development/component/tree/icon/windows/folder.png">icons
+                    </a>
+                    <ul>
+                        <li><span class="Arrow"></span>
+                            <a>
+                                    <img src="http://ui.alopex.io/development/component/tree/icon/windows/folder.png">Image
+                            </a>
+                            <ul>
+                                <li><span class="Arrow"></span>
+                                    <a>
+                                        <img src="http://ui.alopex.io/development/component/tree/icon/windows/jpeg.png">jpg
+                                    </a>
+                                </li>
+                                <li><span class="Arrow"></span>
+                                    <a>
+                                        <img src="http://ui.alopex.io/development/component/tree/icon/windows/bmp.png">bmp
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div>
+            <button class="Button" onclick="testFun1();">$("#flatTree").setDataSource(flatArr)</button>
+            <ul class="Tree" data-source-type="flat" id="flatTree"></ul>
+        </div>
+
+        <div>
+            <ul id="tree1" class="Tree" data-checkbox="visible">
+                <li>
+                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                        <img src="tree/icon/windows/folder.png">
+                        Icons
+                    </a>
+                    <ul>
+                        <li>
+                            <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                <img src="tree/icon/windows/folder.png">
+                                Image
+                            </a>
+                            <ul>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/jpeg.png">
+                                        jpeg
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/bmp.png">
+                                        bmp
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                <img src="tree/icon/windows/folder.png">
+                                Text
+                            </a>
+                            <ul>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/pdf.png">
+                                        pdf
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/txt.png">
+                                        txt
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/word59.png">
+                                        word
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                <img src="tree/icon/windows/folder.png">
+                                etc
+                            </a>
+                            <ul>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/config.png">
+                                        config
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/file.png">
+                                        unknown
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" type="checkbox"><a>
+                                        <img src="tree/icon/windows/zip.png">
+                                        Archieve
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <button id="btn_showCheckbox" class="Button Margin-bottom-5">showCheckbox()</button>
+            <button id="btn_hideCheckbox" class="Button Margin-bottom-5">hideCheckbox()</button>
+            <button id="btn_toggleCheckbox" class="Button Margin-bottom-5">toggleCheckbox()</button>
+            <button id="btn_getCheckedNodes" class="Button Margin-bottom-5">getCheckedNodes()</button>
+            <button id="btn_deleteNode" class="Button Margin-bottom-5">deleteNode()</button>
+        </div>
+
+
+        <script>
+            var testFun1 = function() {
+                var flatArr = [
+                    {"id": "1", "parentId": "","text": "Chocolate Beverage"},
+                    {"id": "2","parentId": "1","text": "Hot Chocolate"},
+                    {"id": "3","parentId": "1","text": "Peppermint Hot Chocolate"},
+                    {"id": "4","parentId": "1","text": "Salted Caramel Hot Chocolate"},
+                    {"id": "5","parentId": "1", "text": "White Hot Chocolate"},
+                    {"id": "6","parentId": "", "text": "Espresso Beverage"},
+                    {"id": "7","parentId": "6","text": "Caffe Americano"},
+                    {"id": "8","parentId": "6","text": "Caffe Latte"}
+                ];
+                $("#flatTree").setDataSource(flatArr);
+            }
+
+            $('#btn_showCheckbox').on('click', function (e) {
+                $('#tree1').showCheckbox();
+            });
+            $('#btn_hideCheckbox').on('click', function (e) {
+                $('#tree1').hideCheckbox();
+            });
+            $('#btn_toggleCheckbox').on('click', function (e) {
+                $('#tree1').toggleCheckbox();
+            });
+            $('#btn_getCheckedNodes').on('click', function (e) {
+                alert(JSON.stringify($('#tree1').getCheckedNodes()));
+            });
+            $('#btn_deleteNode').on('click', function (e) {
+                var selectedNodes = $('#tree1').getCheckedNodes();
+                for (var i = 0; i < selectedNodes.length; i++) {
+                    $('#tree1').deleteNode(selectedNodes[i]);
+                }
+            });
+
+        </script>
+    </body>
+</html>
