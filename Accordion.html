@@ -1,0 +1,180 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="viewport" content="width=device-width">
+
+        <link rel="stylesheet" type="text/css" id="grid_theme_link" href="http://ui.alopex.io/dist/css/alopex-ui-default.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/mddocs.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/alopex-web.css">
+        <link rel="stylesheet" type="text/css" href="http://ui.alopex.io/css/prettify.css">
+        <script src="http://ui.alopex.io/js/libs/jquery/jquery-1.12.4.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/dist/script/alopex-ui.min.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/prettify/prettify.js"></script>
+        <script type="text/javascript" src="http://ui.alopex.io/js/libs/clipboard/clipboard.min.js"></script>
+        <style>
+            div {padding: 20px; width:600px;}
+            .Accordion li.Expandable > a {
+                background: #f3b573;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div>
+            <div>
+                <select id="themeSelect">
+                    <option value="default">Defaut</option>
+                    <option value="white">White</option>
+                    <option value="white-gradation">White gradation</option>
+                    <option value="dark">Dark</option>
+                    <option value="dark-gradation">Dark gradation</option>
+                    <option value="mustard">Mustard</option>
+                    <option value="sk">SK</option>
+                </select>
+                <ul id="accordion1" class="Accordion">
+                    <li>
+                        <a class="custom">Another List Content</a>
+                        <ul>
+                            <li><a>Child #1</a></li>
+                            <li><a>Child #2</a></li>
+                            <li>
+                                <a>Nested Accordion Example</a>
+                                <ul>
+                                    <li><a>G Child #1</a></li>
+                                    <li><a>G Child #2</a></li>
+                                    <li><a>G Child #3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>Div Content</a>
+                        <div>
+                            <p>Any Content in Dev can be inserted into accordion like this example.</p>
+                            <p>Default Style in this area has nothing</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <input id="idx" class="Textinput" value="0">
+                <button id="btn_expand" class="Button">Expand</button>
+                <button id="btn_collapse" class="Button">Collapse</button>
+                <button id="btn_expandAll" class="Button">ExpandAll</button>
+                <button id="btn_collapseAll" class="Button">CollapseAll</button>
+                <p>(뎁스1이 접혀있으면 뎁스2에 해당하는 index를 열거나 닫아도 보이지 않음)</p>
+                <ul id="accordion2" class="Accordion">
+                    <li>
+                        <a>뎁스 1  (index 0)</a>
+                        <ul>
+                            <li><a>뎁스 2 </a></li>
+                            <li><a>뎁스 2 </a></li>
+                            <li>
+                                <a>뎁스 2 (index 1)</a>
+                                <ul>
+                                    <li><a>뎁스 3</a></li>
+                                    <li><a>뎁스 3</a></li>
+                                    <li><a>뎁스 3</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a>뎁스1 (index 2)</a>
+                        <div>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam velit numquam ad cum quaerat iure nihil ab dicta, in ipsum.</p>
+                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Non, modi!</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div>
+                <select class="Select" id="menuId">
+                    <option value="Menu01">Menu01</option>
+                    <option value="Menu01A">Menu01A</option>
+                    <option value="Menu02">Menu02</option>
+                    <option value="Menu03">Menu03</option>
+                </select>
+                <button class="Button" id="expandByMenuId">expandByMenuId</button>
+                <button class="Button" id="collapseByMenuId">collapseByMenuId</button>
+                <ul id="menuIdSample" class="Accordion">
+                    <li data-menuid="Menu01">
+                        <a>Menu01</a>
+                        <ul>
+                            <li data-menuid="Menu01A">
+                                <a>Menu01A</a>
+                                <ul>
+                                    <li data-menuid="Menu01Aa"><a>Menu01Aa</a></li>
+                                    <li data-menuid="Menu01Ab"><a>Menu01Ab</a></li>
+                                </ul>
+                            </li>
+                            <li data-menuid="Menu01B"><a>Menu01B</a></li>
+                            <li data-menuid="Menu01C"><a>Menu01C</a></li>
+                        </ul>
+                    </li>
+                    <li data-menuid="Menu02">
+                        <a>Menu02</a>
+                        <ul>
+                            <li data-menuid="Menu02A"><a>Menu02A</a></li>
+                            <li data-menuid="Menu02B"><a>Menu02B</a></li>
+                            <li data-menuid="Menu02C"><a>Menu02C</a></li>
+                        </ul>
+                    </li>
+                    <li data-menuid="Menu03">
+                        <a>Menu03</a>
+                        <ul>
+                            <li data-menuid="Menu03A"><a>Menu03A</a></li>
+                            <li data-menuid="Menu03B"><a>Menu03B</a></li>
+                            <li data-menuid="Menu03C"><a>Menu03C</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <script>
+            $a.page(function() {
+
+            });
+
+            $('#themeSelect').change(function() {
+                var $select = this;
+                $($select).progress();
+                var url = 'http://ui.alopex.io/dist/css/' + 'alopex-ui-' + $(this).val() + '.css'
+                document.getElementById('grid_theme_link').setAttribute('href', url);
+                $($select).progress().remove();
+            });
+
+            $('#btn_expand').on('click', function(){
+                var index = parseInt($('#idx').val());
+                $('#accordion2').expand(index);
+            });
+
+            $('#btn_collapse').on('click', function(){
+                var index = parseInt($('#idx').val());
+                $('#accordion2').collapse(index);
+            });
+
+            $('#btn_expandAll').on('click', function(){
+                $('#accordion2').expandAll();
+            });
+
+            $('#btn_collapseAll').on('click', function(){
+                $('#accordion2').collapseAll();
+            });
+
+            $(expandByMenuId).on('click', function(){
+                var val = $(menuId).getValues();
+                $(menuIdSample).expandByMenuId(val[0]);
+            });
+            $(collapseByMenuId).on('click', function(){
+                var val = $(menuId).getValues();
+                $(menuIdSample).collapseByMenuId(val[0]);
+            });
+        </script>
+    </body>
+</html>
