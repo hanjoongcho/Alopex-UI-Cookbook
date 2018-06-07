@@ -165,9 +165,165 @@
             <button id="btn_getCheckedNodes" class="Button Margin-bottom-5">getCheckedNodes()</button>
             <button id="btn_deleteNode" class="Button Margin-bottom-5">deleteNode()</button>
         </div>
+        <div class="Display-inblock Width-40 Valign-top">
+            $('#traverseTree').expandAll();
+            <ul id="traverseTree" class="Tree" data-checkbox="visible">
+                <li>
+                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1" type="checkbox"><a>
+                        <img src="/development/component/tree/icon/windows/folder.png">
+                        Icons
+                    </a>
+                    <ul>
+                        <li>
+                            <span class="Arrow"></span> <input class="Checkbox" id="chk_1-1" type="checkbox"><a>
+                                <img src="/development/component/tree/icon/windows/folder.png">
+                                Image
+                            </a>
+                            <ul>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-1-1" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/jpeg.png">
+                                        jpeg
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-1-2" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/bmp.png">
+                                        bmp
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="Arrow"></span> <input class="Checkbox" id="chk_1-2" type="checkbox"><a>
+                                <img src="/development/component/tree/icon/windows/folder.png">
+                                Text
+                            </a>
+                            <ul>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-2-1" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/pdf.png">
+                                        pdf
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-2-2" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/txt.png">
+                                        txt
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-2-3" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/word59.png">
+                                        word
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <span class="Arrow"></span> <input class="Checkbox" id="chk_1-3" type="checkbox"><a>
+                                <img src="/development/component/tree/icon/windows/folder.png">
+                                etc
+                            </a>
+                            <ul>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-3-1" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/config.png">
+                                        config
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-3-2" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/file.png">
+                                        unknown
+                                    </a>
+                                </li>
+                                <li>
+                                    <span class="Arrow"></span> <input class="Checkbox" id="chk_1-3-3" type="checkbox"><a>
+                                        <img src="/development/component/tree/icon/windows/zip.png">
+                                        Archieve
+                                    </a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <div class="egview">
+                <ul class="Tree" data-draggable="true" id="dragTree">
+                    <li>
+                        <span class="Arrow"></span>
+                        <a> Tree Memu 1</a>
+                        <ul>
+                            <li><span class="Arrow"></span>
+                                <a>Tree Memu 1-1</a>
+                                <ul>
+                                    <li>
+                                        <span class="Arrow"></span>
+                                        <a id="a">Tree Memu 1-1-1</a>
+                                    </li>
+                                    <li>
+                                        <span class="Arrow"></span>
+                                        <a>Tree Memu 1-1-2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li><span class="Arrow"></span>
+                                <a>Tree Memu 2-1</a>
+                                <ul>
+                                    <li>
+                                        <span class="Arrow"></span>
+                                        <a id="a">Tree Memu 2-1-1</a>
+                                        <ul>
+                                            <li>
+                                                <span class="Arrow"></span>
+                                                <a id="a">Tree Memu 2-1-1-a</a>
+                                            </li>
+                                            <li>
+                                                <span class="Arrow"></span>
+                                                <a>Tree Memu 2-1-1-b</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <span class="Arrow"></span>
+                                        <a>Tree Memu 2-1-2</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
+
+        </div>
 
         <script>
+            $(document).on('ready', function () {
+                setTimeout(function () {
+            		$(document).trigger('mdload');
+            	}, 100);
+            });
+            $(document).on("mdload", function(){
+                $('#traverseTree').expandAll();
+            });
+
+            function determineTree(target) {
+                console.log(target);
+                if ($(target).parent().children('ul').length > 0) {
+                    console.log('child node: O');
+                    // $(target).parent().children('ul').each(function() { determineTree(this) });
+                    $(target).parent().children('ul').children().each(function() { determineTree(this) });
+                } else {
+                    console.log('child node: X');
+                }
+            }
+
+            $('input:checkbox').on('click', function(e) {
+                determineTree(this);
+            })
+
             var testFun1 = function() {
                 var flatArr = [
                     {"id": "1", "parentId": "","text": "Chocolate Beverage"},
@@ -200,6 +356,7 @@
                     $('#tree1').deleteNode(selectedNodes[i]);
                 }
             });
+
 
         </script>
     </body>
