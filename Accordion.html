@@ -102,7 +102,7 @@
                 <button class="Button" id="expandByMenuId">expandByMenuId</button>
                 <button class="Button" id="collapseByMenuId">collapseByMenuId</button>
                 <ul id="menuIdSample" class="Accordion">
-                    <li data-menuid="Menu01">
+                    <li data-menuid="Menu01" onclick="toggleAccordion('menuIdSample', 0)">
                         <a>Menu01</a>
                         <ul>
                             <li data-menuid="Menu01A">
@@ -116,7 +116,7 @@
                             <li data-menuid="Menu01C"><a>Menu01C</a></li>
                         </ul>
                     </li>
-                    <li data-menuid="Menu02">
+                    <li data-menuid="Menu02" onclick="toggleAccordion('menuIdSample', 2)">
                         <a>Menu02</a>
                         <ul>
                             <li data-menuid="Menu02A"><a>Menu02A</a></li>
@@ -124,7 +124,7 @@
                             <li data-menuid="Menu02C"><a>Menu02C</a></li>
                         </ul>
                     </li>
-                    <li data-menuid="Menu03">
+                    <li data-menuid="Menu03" onclick="toggleAccordion('menuIdSample', 3)">
                         <a>Menu03</a>
                         <ul>
                             <li data-menuid="Menu03A"><a>Menu03A</a></li>
@@ -140,6 +140,40 @@
             $a.page(function() {
 
             });
+
+            function toggleAccordion(target, index) {
+                console.log($("#" + target + "> li").length);
+                for (var i = 0; i <= $("#" + target + "> li").length; i++) {
+                    if (i != index) {
+                        $("#" + target).collapse(i);
+                    }
+                }
+            }
+
+            function toggleMenuIdSample(menuId, target) {
+                var isExpand = $(target).hasClass('Expanded');
+                $('#menuIdSample').children('li').each(function() {console.log(this)});
+                switch (menuId) {
+                    case 'Menu01':
+                        //$('#menuIdSample').collapseAll();
+                        //if (isExpand) $('#menuIdSample').expand(0);
+                        $('#menuIdSample').collapse(2);
+                        $('#menuIdSample').collapse(3);
+                        break;
+                    case 'Menu02':
+                        //$('#menuIdSample').collapseAll();
+                        //if (isExpand) $('#menuIdSample').expand(2);
+                        $('#menuIdSample').collapse(0);
+                        $('#menuIdSample').collapse(3);
+                        break;
+                    case 'Menu03':
+                        //$('#menuIdSample').collapseAll();
+                        //if (isExpand) $('#menuIdSample').expand(3);
+                        $('#menuIdSample').collapse(0);
+                        $('#menuIdSample').collapse(2);
+                        break;
+                }
+            }
 
             $('#themeSelect').change(function() {
                 var $select = this;
